@@ -1,0 +1,1 @@
+Для успешной сборки проекта необходима библиотека [netDxf](https://github.com/haplokuon/netDxf)
