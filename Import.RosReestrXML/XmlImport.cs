@@ -134,8 +134,8 @@ namespace Import.RosReestrXML
                         }   
                         reader.Read();                     
                     }
-                }     
-                if (RosReestrXML.ARGS.Contains("--split"))
+                }
+                if (RosReestrXML._args.Contains("--split"))
                 {
                     listBlocks.Add(blocks);
                 }
@@ -143,10 +143,12 @@ namespace Import.RosReestrXML
                 {
                     new CreateFileCAD(blocks);
                 }                
-                blocks = null;
-                //Environment.Exit(0);
+                blocks = null;                
             }
-            new CreateFileCAD(listBlocks);
+            if (listBlocks.Count > 0)
+            {
+                new CreateFileCAD(listBlocks);
+            }            
         }
 
         private string getValue(XmlReader reader)

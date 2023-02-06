@@ -6,45 +6,58 @@ namespace Import.RosReestrXML
 {    
     public class RosReestrXML 
     {
-        public static List<String> ARGS = new List<string>();
+        public static List<String> _args = new List<string>();
+        public static string _pathToXML;
         public static void Main(string[] args)
         {
-            string pathToXML = Directory.GetCurrentDirectory();
-            if (args.Length > 0)
+            _args.AddRange(args);
+            if (_args.Contains("--help"))
             {
-                if (args[0].Equals("--help"))
-                {
-                    getText();
-                } 
-                else if (Directory.Exists(args[0]))
-                {
-                    pathToXML = args[0];
-                }
-
-                if (args.Length > 1)
-                {
-                    ARGS.AddRange(args);
-                }                
+                getText();
+                Exit();
+            }
+            getText();
+            Console.Write("Укажите путь каталога с XML: ");
+		    _pathToXML = Console.ReadLine();
+            
+            if (String.IsNullOrEmpty(_pathToXML))
+            {
+                getText();
+                Console.WriteLine("Внимание!!! ПУТЬ К КАТАЛОГУ НЕ УКАЗАН!");
+                Exit();
             }
             else
             {
-                getText();
+                _pathToXML = _pathToXML[_pathToXML.Length - 1] == Path.DirectorySeparatorChar ? _pathToXML : _pathToXML + Path.DirectorySeparatorChar;
             }
-            new XmlImport(pathToXML);
+            
+            if (!Directory.Exists(_pathToXML))
+            {
+                getText();
+                Console.WriteLine("Внимание!!! КАТАЛОГ НЕ ОБНАРУЖЕН");
+                Exit();
+            }
+            new XmlImport(_pathToXML);
         }
         private static void getText()
         {
-            System.Console.WriteLine("Использование: ImportXML [путь к xml файлам росреестра] [Опции]");
-            System.Console.WriteLine("                если путь не указан файлы ищутся в локальной директории.");
-            System.Console.WriteLine("              --help  - эта справка");
+            System.Console.WriteLine("Использование: ImportXML [Опции]");
             System.Console.WriteLine("Опции:");
+            System.Console.WriteLine("              --help   - эта справка");            
             System.Console.WriteLine("              --split  - объеденить обрабатываемые файлы.");
-            System.Console.WriteLine("              --np - без выгрузки ЗУ в файл");
-            System.Console.WriteLine("              --nr - без выгрузки ОКС в файл");
-            System.Console.WriteLine("              --nz - без выгрузки Зон в файл");
-            System.Console.WriteLine("              --nb - без выгрузки Границ в файл");
-            System.Console.WriteLine("              --noms - без выгрузки Точек ОМС");
+            System.Console.WriteLine("              --np     - без выгрузки ЗУ в файл");
+            System.Console.WriteLine("              --nr     - без выгрузки ОКС в файл");
+            System.Console.WriteLine("              --nz     - без выгрузки Зон в файл");
+            System.Console.WriteLine("              --nb     - без выгрузки Границ в файл");
+            System.Console.WriteLine("              --noms   - без выгрузки Точек ОМС");
             System.Console.WriteLine("\n Автор: Князев Олег Викторович. \n эл.почта: olegk1980@mail.ru");
+        }
+    
+        private static void Exit()
+        {
+            Console.Write("нажмите ENTER для завершения программы");
+		    Console.ReadLine();
+            System.Environment.Exit(0);
         }
     }
     
