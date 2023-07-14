@@ -17,7 +17,7 @@ namespace Import.RosReestrXML
                 Exit();
             }
             getText();
-            Console.Write("Укажите путь каталога с XML: ");
+            Console.Write("Укажите путь к каталогу с XML: ");
 		    _pathToXML = Console.ReadLine();
             
             if (String.IsNullOrEmpty(_pathToXML))

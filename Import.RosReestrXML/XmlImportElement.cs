@@ -122,7 +122,6 @@ namespace Import.RosReestrXML
                     if (elBuilding.Element(elBuilding.Name.Namespace + "EntitySpatial") != null)
                     {
                         objRealty.SetEntitySpatial(ReadEntitySpatial(elBuilding));
-
                     }
                 }
                 if (e.Element(e.Name.Namespace + "Construction") != null)
@@ -264,6 +263,41 @@ namespace Import.RosReestrXML
                     {
                         objRealty.SetEntitySpatial(ReadEntitySpatial(e.Element("contours").Element("contour")));
                     }
+                }
+            }
+            else if (e.Name.LocalName == "TP")
+            {   
+                StringBuilder typeParameter = new StringBuilder();
+                StringBuilder valueParameter = new StringBuilder();
+                
+                objRealty.SetAssignationName(e.Descendants("AssignationName").FirstOrDefault().Value);
+                if (e.Descendants("Area").FirstOrDefault() != null) {
+                    objRealty.SetArea(e.Descendants("Area").FirstOrDefault().Value);
+                } 
+                else
+                {
+                    foreach (XElement keyParameter in e.Descendants("KeyParameters").Elements())
+                    {
+                        typeParameter.Append(keyParameter.Attribute("Type").Value);
+                        valueParameter.Append(keyParameter.Attribute("Value").Value);
+                    }
+                    objRealty.SetAreaType(typeParameter.ToString());
+                    objRealty.SetArea(valueParameter.ToString());
+                }
+                if (e.Descendants("Contours").FirstOrDefault() != null)
+                {
+                    foreach (XElement elContour in e.Descendants("Contours").Elements())
+                    {       
+                        Contour contour = new Contour();
+                            contour.SetNumContour(elContour.Attribute("Definition").Value);
+                            contour.SetEntitySpatial(ReadEntitySpatial(elContour.Descendants("EntitySpatial").FirstOrDefault()));
+                            contours.Add(contour);
+                    }
+                    objRealty.SetContours(contours.ToArray());
+                } 
+                else
+                {
+                    objRealty.SetEntitySpatial(ReadEntitySpatial(e.Descendants("EntitySpatial").FirstOrDefault()));                    
                 }
             }
             Console.Write(".");

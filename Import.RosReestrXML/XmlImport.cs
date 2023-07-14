@@ -105,7 +105,8 @@ namespace Import.RosReestrXML
 
                             if (reader.Name == "ObjectRealty" || (reader.Name).ToLower() == "build_record" 
                                 || (reader.Name).ToLower() == "construction_record"
-                                || (reader.Name).ToLower() == "object_under_construction_record")
+                                || (reader.Name).ToLower() == "object_under_construction_record"
+                                || (reader.Name).ToLower() == "tp")
                             {
                                 objRealty.Add(xmlImportElement.ObjectRealty());
                                 continue;
