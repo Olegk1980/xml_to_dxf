@@ -50,7 +50,7 @@ namespace Import.RosReestrXML
             System.Console.WriteLine("              --nz     - без выгрузки Зон в файл");
             System.Console.WriteLine("              --nb     - без выгрузки Границ в файл");
             System.Console.WriteLine("              --noms   - без выгрузки Точек ОМС");
-            System.Console.WriteLine("\n Автор: Князев Олег Викторович. \n эл.почта: olegk1980@mail.ru");
+            System.Console.WriteLine("\n Для доработки программы эл.почта: olegk1980@mail.ru");
         }
     
         private static void Exit()

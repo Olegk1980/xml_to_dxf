@@ -270,6 +270,8 @@ namespace Import.RosReestrXML
                 StringBuilder typeParameter = new StringBuilder();
                 StringBuilder valueParameter = new StringBuilder();
                 
+                objRealty.SetKadNum("0");
+                objRealty.SetObjectType("0");
                 objRealty.SetAssignationName(e.Descendants("AssignationName").FirstOrDefault().Value);
                 if (e.Descendants("Area").FirstOrDefault() != null) {
                     objRealty.SetArea(e.Descendants("Area").FirstOrDefault().Value);

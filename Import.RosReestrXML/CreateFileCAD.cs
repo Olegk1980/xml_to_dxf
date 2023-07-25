@@ -59,7 +59,7 @@ namespace Import.RosReestrXML{
                 dxfBlockCadBlok.AttributeDefinitions.Add(this.AttributeObject("ЗУ", block.GetParcels().Length + " шт."));
                 dxfBlockCadBlok.AttributeDefinitions.Add(this.AttributeObject("ОКС", block.GetObjectsRealty().Length + " шт."));
                 dxfBlockCadBlok.AttributeDefinitions.Add(this.AttributeObject("Границы", block.GetBounds().Length + " шт."));
-                dxfBlockCadBlok.AttributeDefinitions.Add(this.AttributeObject("Зоны", block.GetZones().Length + " шт."));
+                dxfBlockCadBlok.AttributeDefinitions.Add(this.AttributeObject("Зоны", block.GetZones().Length + " шт."));                       
 
                 parcels = block.GetParcels();
                 objectRealties = block.GetObjectsRealty();
