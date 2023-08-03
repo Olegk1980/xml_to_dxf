@@ -271,8 +271,10 @@ namespace Import.RosReestrXML
                 StringBuilder valueParameter = new StringBuilder();
                 
                 objRealty.SetKadNum("0");
-                objRealty.SetObjectType("0");
-                objRealty.SetAssignationName(e.Descendants("AssignationName").FirstOrDefault().Value);
+                objRealty.SetObjectType("0");                
+                if (e.Descendants("AssignationName").FirstOrDefault() != null) {
+                    objRealty.SetAssignationName(e.Descendants("AssignationName").FirstOrDefault().Value);
+                }
                 if (e.Descendants("Area").FirstOrDefault() != null) {
                     objRealty.SetArea(e.Descendants("Area").FirstOrDefault().Value);
                 } 
@@ -291,9 +293,17 @@ namespace Import.RosReestrXML
                     foreach (XElement elContour in e.Descendants("Contours").Elements())
                     {       
                         Contour contour = new Contour();
+                        if (elContour.Attribute("Definition") != null) {
                             contour.SetNumContour(elContour.Attribute("Definition").Value);
                             contour.SetEntitySpatial(ReadEntitySpatial(elContour.Descendants("EntitySpatial").FirstOrDefault()));
                             contours.Add(contour);
+                        } else
+                        {
+                            if (elContour.Descendants("EntitySpatial").FirstOrDefault() != null) {
+                                contour.SetEntitySpatial(ReadEntitySpatial(elContour.Descendants("EntitySpatial").FirstOrDefault()));
+                                contours.Add(contour);
+                            }                            
+                        }
                     }
                     objRealty.SetContours(contours.ToArray());
                 } 

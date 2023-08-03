@@ -52,8 +52,9 @@ namespace Import.RosReestrXML{
             foreach(Block block in cadastreBlocks)
             {
                 System.Console.Write(".");
-                DxfBlock dxfBlockCadBlok = new DxfBlock(block.GetKadNum().Replace(':', '_'));
-                
+               
+                DxfBlock dxfBlockCadBlok = new DxfBlock(block.GetKadNum());
+                                
                 dxfBlockCadBlok.AttributeDefinitions.Add(this.AttributeObject("Кадастровый_номер", block.GetKadNum()));
                 dxfBlockCadBlok.AttributeDefinitions.Add(this.AttributeObject("Площадь", block.GetArea()));
                 dxfBlockCadBlok.AttributeDefinitions.Add(this.AttributeObject("ЗУ", block.GetParcels().Length + " шт."));

@@ -51,15 +51,8 @@ namespace Import.RosReestrXML
                     {
                         if (reader.NodeType == XmlNodeType.EndElement)
                         {
-                            if (reader.Name == "Cadastral_Block")
-                            {
-                                block.AddParcels(parcels);
-                                block.AddObjectsRealty(objRealty);
-                                block.AddOMSPoints(OMSPoints);
-                                block.AddBounds(bounds);
-                                block.AddZones(zones);
-                            }
-                            if (reader.Name == "cadastral_block")
+                            if (reader.Name == "Cadastral_Block" 
+                                || reader.Name == "cadastral_block")
                             {
                                 block.AddParcels(parcels);
                                 block.AddObjectsRealty(objRealty);
@@ -133,19 +126,21 @@ namespace Import.RosReestrXML
                             }
                             if ((reader.Name).ToLower() == "tp") {
                                 objRealty.Add(xmlImportElement.ObjectRealty());
-                                block = new Block();
-                                blocks.Add(block);
-                                block.SetKadNum("0");
-                                block.AddParcels(parcels);
-                                block.AddObjectsRealty(objRealty);
-                                block.AddOMSPoints(OMSPoints);
-                                block.AddBounds(bounds);
-                                block.AddZones(zones);
                                 break;
                             }
                         }   
                         reader.Read();                     
                     }
+                    if (block == null)
+                    {
+                        block = new Block();
+                    }
+                    block.AddParcels(parcels);
+                    block.AddObjectsRealty(objRealty);
+                    block.AddOMSPoints(OMSPoints);
+                    block.AddBounds(bounds);
+                    block.AddZones(zones);
+                    blocks.Add(block);
                 }
                 if (RosReestrXML._args.Contains("--split"))
                 {

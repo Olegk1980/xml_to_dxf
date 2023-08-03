@@ -19,7 +19,11 @@ namespace Import.RosReestrXML
         }
         public string GetKadNum()
         {
-            return kn;
+            if (kn == null)
+            {
+                return "NoNameCadastre";
+            }
+            return kn.Replace(':', '_');
         }
         public void SetArea(string area)
         {
