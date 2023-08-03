@@ -3,20 +3,32 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Import.RosReestrXML", "Import.RosReestrXML\Import.RosReestrXML.csproj", "{EA5EB6DA-1874-4722-8184-86388E8BB3F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Import.RosReestrXML", "Import.RosReestrXML\Import.RosReestrXML.csproj", "{B8F98677-F767-44AC-8218-DA4A9BF8F069}"
 EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{EA5EB6DA-1874-4722-8184-86388E8BB3F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EA5EB6DA-1874-4722-8184-86388E8BB3F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EA5EB6DA-1874-4722-8184-86388E8BB3F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EA5EB6DA-1874-4722-8184-86388E8BB3F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Debug|x64.Build.0 = Debug|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Debug|x86.Build.0 = Debug|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Release|x64.ActiveCfg = Release|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Release|x64.Build.0 = Release|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Release|x86.ActiveCfg = Release|Any CPU
+		{B8F98677-F767-44AC-8218-DA4A9BF8F069}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
